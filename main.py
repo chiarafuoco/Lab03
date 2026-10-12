@@ -1,4 +1,5 @@
 from deposito_strumenti import DepositoStrumenti
+from strumento import Strumento #ho creato il file strumento in cui ho creato la classe Strumento
 from datetime import datetime
 
 def menu():
@@ -22,11 +23,16 @@ def main():
             nuovo_responsabile = input("Inserisci il nuovo responsabile: ")
             # TODO: Aggiorna responsabile nel sistema
 
+            deposito.responsabile= nuovo_responsabile #qui sovrascrivo
+            print(f"{deposito.responsabile} è il nuovo responsabile del deposito {deposito.nome}") #stampo nome del
+            # nuovo responsabile
+
+
         elif scelta == "2":
             while True:
                 try:
                     file_path = input("Inserisci il path del file da caricare: ").strip()
-                    deposito.carica_file_strumenti(file_path)
+                    deposito.carica_file_strumenti(file_path) 
                     break
                 except Exception as e:
                     print(e)
